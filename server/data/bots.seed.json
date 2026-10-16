@@ -1,0 +1,204 @@
+[
+  {
+    "id": "demo-bot",
+    "name": "Shop Assistant",
+    "color": "#b0e64c",
+    "greeting": "Hi! 👋 Welcome to our store. Ask me about orders, shipping, returns or payments.",
+    "placeholder": "Type your message...",
+    "position": "bottom-right",
+    "knowledge": [
+      {
+        "q": "What do you sell?",
+        "a": "We are an online shop in Bhutan selling quality products — browse our collections to see everything in stock in Thimphu. New stock arrives regularly from Phuentsholing, India and Bangkok."
+      },
+      {
+        "q": "How do I place an order?",
+        "a": "Add items to your cart, go to checkout, enter your name, 8-digit mobile number (17/77), Dzongkhag + full address, choose payment (mBoB, mPay, Bhutan QR or COD), and confirm. You will get an order confirmation by SMS/call."
+      },
+      {
+        "q": "Do I need an account to order?",
+        "a": "No — you can order as a guest. Creating a free account with your Bhutan mobile number just makes checkout faster and lets you track orders easily."
+      },
+      {
+        "q": "How do I create an account?",
+        "a": "Click Sign Up on top of the site, enter your name, Bhutan mobile number (17/77/16) and password. It takes less than a minute. We will send an OTP to verify."
+      },
+      {
+        "q": "I forgot my password, what do I do?",
+        "a": "Click Forgot Password on login, enter your registered mobile number/email, and follow the reset SMS/link we send you. Contact us if you changed your number."
+      },
+      {
+        "q": "How can I track my order?",
+        "a": "Go to Track Order / My Orders and enter your order ID. Status: confirmed → packed → shipped → out for delivery → delivered. We also update you by phone call/SMS, and you can always ask here with your order ID."
+      },
+      {
+        "q": "How long does delivery take?",
+        "a": "Thimphu & Paro: usually 1–2 working days. Phuentsholing, Gelephu, Wangdue, Punakha: 2–4 days. Other Dzongkhags including Mongar, Trashigang, Samdrup Jongkhar, Bumthang: 4–7 working days depending on Bhutan Post/courier and road/weather conditions."
+      },
+      {
+        "q": "How much is shipping / delivery charge?",
+        "a": "Delivery is calculated at checkout in Ngultrum (Nu.) based on your Dzongkhag and parcel size — usually Nu.50–150. Thimphu town orders above the minimum amount shown on homepage get FREE delivery."
+      },
+      {
+        "q": "Do you deliver to my location?",
+        "a": "Yes, we deliver to all 20 Dzongkhags in Bhutan via Bhutan Post, couriers and taxi parcel. Enter your Dzongkhag + Gewog + address at checkout to confirm."
+      },
+      {
+        "q": "Do you offer free delivery?",
+        "a": "Yes! Inside Thimphu on orders above the minimum amount shown in our banner, delivery is FREE. During Losar, National Day and special sales we also do free delivery nationwide offers."
+      },
+      {
+        "q": "Do you offer express or urgent delivery?",
+        "a": "Inside Thimphu/Paro, same-day/urgent delivery is possible for a small extra fee — select Express at checkout or message us. Outside Thimphu we send by fastest available courier/taxi."
+      },
+      {
+        "q": "Can I pick up my order myself?",
+        "a": "Yes! Choose Self Pickup at checkout and collect from our Thimphu pickup point (address on Contact page). We will call you when your order is ready. Bring your order ID."
+      },
+      {
+        "q": "What payment methods do you accept?",
+        "a": "We accept Bhutanese mobile banking and QR payments: mBoB (Bank of Bhutan), mPay (BNB), ePay (BDBL), TPay (T Bank) and Druk PNB app — all work with interoperable Bhutan QR. Just scan our QR at checkout to pay. We also accept direct bank transfer to any Bhutanese bank (BOB, BNB, BDBL, T Bank, Druk PNB) and Cash on Delivery."
+      },
+      {
+        "q": "Is Cash on Delivery available?",
+        "a": "Yes! Cash on Delivery in Ngultrum (Nu.) is available across Bhutan. Pay in cash when your order arrives. You can also pay on delivery by scanning our Bhutan QR with mBoB, mPay or any Bhutanese banking app."
+      },
+      {
+        "q": "My payment failed, what should I do?",
+        "a": "No money is taken on failed payment. Check your internet, make sure your mBoB/mPay/ePay has enough balance and daily limit is okay, then try again. If Journal / QR expires, generate a new one. Send us a screenshot if it keeps failing."
+      },
+      {
+        "q": "I was charged twice, what happens?",
+        "a": "Kuzuzangpo la, sorry! Double mBoB/mPay charges auto-reverse in 3–7 working days. If not reversed, send us your order ID + payment screenshot (Journal No.) on chat and we will refund the extra amount to your bank account."
+      },
+      {
+        "q": "Are there any hidden or extra charges?",
+        "a": "No hidden charges, la. Product price + delivery fee in Ngultrum shown before you pay is all you pay. No extra on delivery."
+      },
+      {
+        "q": "How do I use a coupon / discount code?",
+        "a": "Add items to cart, go to checkout, enter your coupon code in the Promo Code box and click Apply. Discount in Nu. shows instantly. One code per order."
+      },
+      {
+        "q": "Why is my coupon code not working?",
+        "a": "Coupons may be expired, already used, below minimum order value, or for selected items only. Check Losar/sale terms. Share your code here and we will check for you, la."
+      },
+      {
+        "q": "Do you have sales or offers?",
+        "a": "Yes la! Check homepage banners for Losar Sale, National Day offers, and weekend combo deals. Follow our Facebook/Instagram page for Bhutan sale updates."
+      },
+      {
+        "q": "Can I change or cancel my order?",
+        "a": "Yes, free before we ship — call/message us immediately with your order ID. Orders leaving Thimphu by Post/courier cannot be cancelled, but you can return after delivery."
+      },
+      {
+        "q": "Can I change my delivery address?",
+        "a": "If not yet shipped, yes la — message us right away with order ID + correct Dzongkhag, Gewog, phone number and we will update. Once handed to Bhutan Post, rerouting is difficult."
+      },
+      {
+        "q": "I entered the wrong address, what to do?",
+        "a": "Message us ASAP with order ID + correct address + phone. If parcel already left Thimphu, we will try to reroute via Post/courier, otherwise it returns and we resend (extra delivery fee may apply)."
+      },
+      {
+        "q": "What is your return policy?",
+        "a": "Easy 7-day return, la: unused items with tags/bill in original packing can be returned within 7 days of delivery for replacement or refund. For hygiene items (cosmetics, undergarments) returns only if sealed/damaged."
+      },
+      {
+        "q": "How do I return an item?",
+        "a": "Message us with order ID + photo + reason. Thimphu: we arrange pickup/drop. Other Dzongkhags: send back via Bhutan Post/courier (keep receipt). After inspection we send replacement or refund in 3–7 days."
+      },
+      {
+        "q": "Can I exchange for a different size or color?",
+        "a": "Yes la — request exchange within 7 days. Thimphu customers can swap at pickup point. Outside Thimphu, courier the item back and we send the new size/kira/gho size once stock confirmed."
+      },
+      {
+        "q": "Who pays for return shipping?",
+        "a": "Damaged, wrong or faulty item — we pay full. Changed mind / wrong size ordered — customer arranges return via Post/courier to Thimphu."
+      },
+      {
+        "q": "How long do refunds take?",
+        "a": "After return approval, 3–7 working days to your bank account / mBoB / mPay. COD orders refunded by bank transfer — we will ask for your BOB/BNB account number."
+      },
+      {
+        "q": "How will I receive my refund?",
+        "a": "QR/transfer payments go back to same bank account. COD orders refunded by transfer to your BOB, BNB, BDBL, T Bank or Druk PNB account. We confirm by SMS once sent."
+      },
+      {
+        "q": "What if my item arrives damaged or wrong?",
+        "a": "Sorry la! Send order ID + photo within 48 hours and we will replace or fully refund — no extra charge. Keep the parcel/box for courier claim if needed."
+      },
+      {
+        "q": "Are your products original / authentic?",
+        "a": "Yes, 100% original la. We source from authorised distributors in Bhutan, India and Bangkok. If anything arrives duplicate/fake, full refund + return shipping on us."
+      },
+      {
+        "q": "Do products have warranty?",
+        "a": "Selected electronics/appliances have seller/manufacturer warranty as written on product page (usually 6–12 months). Keep your bill/order ID. Warranty service in Thimphu."
+      },
+      {
+        "q": "How do I claim warranty?",
+        "a": "Message us with order ID + product video/photo showing the problem. Bring/send to our Thimphu point. We repair/replace as per warranty. Physical damage and power-surge damage not covered."
+      },
+      {
+        "q": "What if an item is out of stock?",
+        "a": "Sold out means next Phuentsholing/India/Bangkok stock lot is coming. Message us — we will tell you expected date (usually 1–3 weeks) or suggest similar available item."
+      },
+      {
+        "q": "Can I pre-order or reserve an item?",
+        "a": "Yes la, for popular items (kiras, ghos, electronics, festival stock). Pay small advance via mBoB/mPay QR and we reserve. Balance on delivery. Ask here to pre-book."
+      },
+      {
+        "q": "How do I know which size to buy?",
+        "a": "Check size chart on product page. For gho/kira/tego-wonju, measure and compare. Between sizes? Take larger — exchange within 7 days is easy. Message us your height/size and we advise."
+      },
+      {
+        "q": "Can I get a bill / invoice for my order?",
+        "a": "Yes la — every order includes a proper bill. Download from My Orders, or we send on WhatsApp/WeChat on request. Useful for office claims and warranty."
+      },
+      {
+        "q": "Do you do gift wrapping?",
+        "a": "Yes la! Gift wrapping for birthdays, Losar, graduations, weddings — small fee. Add note at checkout with your Tashi Delek message and we wrap nicely."
+      },
+      {
+        "q": "Do you have gift cards or vouchers?",
+        "a": "When available, gift vouchers (Nu.500/1000/2000) appear under Gifts section. Buy via QR transfer and receiver redeems code at checkout. Perfect for Losar gifts."
+      },
+      {
+        "q": "Do you offer bulk or wholesale orders?",
+        "a": "Yes la! For Bhutanese shops, offices, schools, tshogpas — message us item + quantity + Dzongkhag and we give special wholesale rate + combined delivery."
+      },
+      {
+        "q": "How do I leave a product review?",
+        "a": "Go to My Orders → delivered item → Write Review. Ratings + photos help fellow Bhutanese shoppers. Kuzuzangpo for supporting local online shop!"
+      },
+      {
+        "q": "Where are you located?",
+        "a": "We are an online store based in Thimphu, Bhutan, delivering to all 20 Dzongkhags. See Contact page for pickup address and map. Pickup timing: Mon–Sat 9am–6pm."
+      },
+      {
+        "q": "What are your support hours?",
+        "a": "Online support Mon–Sat, 9am–6pm Bhutan Time. Sunday and public holidays (Losar, National Day) we reply next working day. This chatbot answers common questions 24/7, la."
+      },
+      {
+        "q": "How can I contact support?",
+        "a": "Chat here anytime, call/message the number on Contact page, or DM our Facebook/Instagram. For fast help share your order ID + phone number. We reply in English and Dzongkha."
+      },
+      {
+        "q": "Is my personal and payment information safe?",
+        "a": "Yes la, 100%. We never see or store your mBoB/mPay PIN or passwords — you pay inside your own bank app. Your address/phone used only for delivery, never shared."
+      },
+      {
+        "q": "What currency are prices in?",
+        "a": "All prices in Bhutanese Ngultrum (Nu./BTN). What you see at checkout is exactly what you pay — no conversion or extra fees."
+      },
+      {
+        "q": "Do you deliver during Losar and holidays?",
+        "a": "We take orders 24/7, but delivery pauses on Losar days, National Day and major public holidays. Orders placed then ship on next working day. Tashi Delek!"
+      },
+      {
+        "q": "Can I talk in Dzongkha?",
+        "a": "Kuzuzangpo la! Yes, you can type in Dzongkha or simple English — I understand both. For complex help our team replies in Dzongkha/English on chat."
+      }
+    ]
+  }
+]

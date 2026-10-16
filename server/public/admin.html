@@ -1,0 +1,98 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MyChatbot Admin — free</title>
+<style>
+*{box-sizing:border-box}body{font-family:system-ui;margin:0;background:#0f172a;color:#e2e8f0}
+.wrap{max-width:900px;margin:0 auto;padding:24px}
+.card{background:#1e293b;border-radius:14px;padding:18px;margin:14px 0}
+input,textarea,select{width:100%;background:#0b1220;color:#fff;border:1px solid #334155;border-radius:8px;padding:9px;margin:4px 0}
+button{background:#4F46E5;color:#fff;border:0;border-radius:8px;padding:9px 16px;cursor:pointer;font-weight:600}
+button.ghost{background:#334155}.row{display:flex;gap:10px;flex-wrap:wrap}.row>*{flex:1;min-width:140px}
+.kb{display:flex;gap:8px;margin:6px 0}.kb input{margin:0}
+.chat{background:#0b1220;border-radius:8px;padding:8px;max-height:300px;overflow:auto;font-size:14px}
+pre{white-space:pre-wrap;background:#0b1220;padding:12px;border-radius:8px;font-size:13px}
+h1{margin:6px 0}small{color:#94a3b8}
+</style></head>
+<body><div class="wrap">
+<h1>🤖 MyChatbot — Admin <small>100% free</small></h1>
+<p>Engine: <b id="engine">…</b> · <a style="color:#93c5fd" href="/demo.html">demo site</a></p>
+
+<div class="card"><h3>Bots</h3>
+<div class="row"><select id="botSel"></select><button id="newBot" class="ghost">+ New bot</button><button id="delBot" class="ghost">Delete</button></div>
+</div>
+
+<div class="card"><h3>Appearance &amp; behaviour</h3>
+<div class="row">
+<div><label>Name</label><input id="f_name"></div>
+<div><label>Color</label><input id="f_color" type="color" style="height:40px"></div>
+<div><label>Position</label><select id="f_pos"><option value="bottom-right">bottom-right</option><option value="bottom-left">bottom-left</option></select></div>
+</div>
+<label>Greeting</label><input id="f_greet">
+<label>Placeholder</label><input id="f_ph">
+<button id="saveBtn">💾 Save</button> <span id="saveMsg"></span>
+</div>
+
+<div class="card"><h3>📚 Knowledge (Q&A — the bot answers these instantly, free, no AI key needed)</h3>
+<div id="kb"></div>
+<button id="addKb" class="ghost">+ Add Q&A</button>
+<button id="saveBtn2">💾 Save all</button>
+</div>
+
+<div class="card"><h3>🔌 Embed on ANY website (copy-paste)</h3>
+<pre id="embed"></pre>
+<h3>📱 Apps / software (REST API)</h3>
+<pre id="api"></pre>
+</div>
+
+<div class="card"><h3>💬 Recent chats</h3>
+<button id="loadChats" class="ghost">Refresh</button><div class="chat" id="chats"></div>
+</div>
+
+<div class="card"><h3>🧠 Free AI upgrade (optional — smarter replies)</h3>
+<small>Default engine is built-in (free, offline). To make it smarter free: get a key at <b>console.groq.com</b> or <b>aistudio.google.com</b> (both free, no card), then add to a <b>.env</b> file next to server.js:<br>
+GROQ_API_KEY=gsk_... &nbsp;or&nbsp; GEMINI_API_KEY=... — then restart the server.</small></div>
+</div>
+<script>
+let bots=[], cur=null;
+const $=id=>document.getElementById(id);
+async function api(m,u,b){const r=await fetch(u,{method:m,headers:{'Content-Type':'application/json'},body:b?JSON.stringify(b):undefined});return r.json();}
+async function load(){
+  const h=await (await fetch('/api/health')).json(); $('engine').textContent=h.engine;
+  bots=await (await fetch('/api/bots')).json();
+  cur=bots[0];
+  $('botSel').innerHTML=bots.map(b=>`<option value="${b.id}">${b.name} (${b.id})</option>`).join('');
+  $('botSel').value=cur.id; render();
+}
+function render(){
+  $('f_name').value=cur.name||'';$('f_color').value=cur.color||'#4F46E5';$('f_pos').value=cur.position||'bottom-right';
+  $('f_greet').value=cur.greeting||'';$('f_ph').value=cur.placeholder||'';
+  $('kb').innerHTML='';
+  (cur.knowledge||[]).forEach((k,i)=>{
+    const d=document.createElement('div');d.className='kb';
+    d.innerHTML=`<input placeholder="Question" value="${(k.q||'').replace(/"/g,'&quot;')}"><input placeholder="Answer" value="${(k.a||'').replace(/"/g,'&quot;')}"><button class="ghost">✕</button>`;
+    const [qi,ai,del]=d.children;
+    qi.oninput=()=>cur.knowledge[i].q=qi.value; ai.oninput=()=>cur.knowledge[i].a=ai.value;
+    del.onclick=()=>{cur.knowledge.splice(i,1);render();};
+    $('kb').appendChild(d);
+  });
+  const origin=location.origin;
+  $('embed').textContent=`<script src="${origin}/widget.js" data-bot-id="${cur.id}"><\/script>`;
+  $('api').textContent=`POST ${origin}/api/chat\nContent-Type: application/json\n\n{"botId":"${cur.id}","message":"Hello!","sessionId":"user-123"}\n\n→ {"reply":"...","sessionId":"..."}`;
+}
+$('botSel').onchange=e=>{cur=bots.find(b=>b.id===e.target.value);render();};
+$('newBot').onclick=async()=>{const b=await api('POST','/api/bots',{name:'New Bot'});bots.push(b);cur=b;$('botSel').innerHTML+=`<option value="${b.id}">${b.name}</option>`;$('botSel').value=b.id;render();};
+$('delBot').onclick=async()=>{if(!confirm('Delete this bot?'))return;await api('DELETE','/api/bots/'+cur.id);load();};
+$('addKb').onclick=()=>{cur.knowledge=cur.knowledge||[];cur.knowledge.push({q:'',a:''});render();};
+async function save(){
+  cur.name=$('f_name').value;cur.color=$('f_color').value;cur.position=$('f_pos').value;
+  cur.greeting=$('f_greet').value;cur.placeholder=$('f_ph').value;
+  const b=await api('PUT','/api/bots/'+cur.id,cur);Object.assign(cur,b);
+  $('saveMsg').textContent='✅ saved';setTimeout(()=>$('saveMsg').textContent='',1500);
+}
+$('saveBtn').onclick=save;$('saveBtn2').onclick=save;
+$('loadChats').onclick=async()=>{
+  const c=await (await fetch('/api/chats?botId='+cur.id)).json();
+  $('chats').innerHTML=c.length?c.map(x=>`<p>🧑 ${x.q}<br>🤖 ${x.a}<br><small>${x.at}</small></p><hr>`).join(''):'No chats yet.';
+};
+load();
+</script></body></html>
