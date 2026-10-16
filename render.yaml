@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: my-chatbot
+    runtime: node
+    rootDir: server
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 20
